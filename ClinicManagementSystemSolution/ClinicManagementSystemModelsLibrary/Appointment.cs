@@ -42,40 +42,6 @@ namespace ClinicManagementSystemModelsLibrary
                 "\nPrice: " + (price < 0.0 ? "To be decided": "$" + price) +
                 "\nStatus: " + status;
         }
-        public void TakeDetails()
-        {
-            Console.WriteLine("Enter Patient ID:");
-            patientID = GetIntInput();
-            Console.WriteLine("Enter Doctor ID:");
-            doctorID = GetIntInput();
-            Console.WriteLine("Enter Details:");
-            details = Console.ReadLine();
-            Console.WriteLine("Enter Price:");
-            while (!double.TryParse(Console.ReadLine(), out price))
-            {
-                Console.WriteLine("Invalid Value. Try again.");
-            }
-            Console.WriteLine("Enter Date (e.g. dd/MM/yyyy hh:mm AM/PM):");
-            var check = true;
-            while (check)
-            {
-                while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy hh:mm tt", null, DateTimeStyles.None, out date))
-                {
-                    Console.WriteLine("Invalid Value. Try again.");
-                }
-                if (date < DateTime.Now)
-                {
-                    Console.WriteLine("Please enter a date after today.");
-                }
-                else
-                {
-                    check = false;
-                }
-            }
-            
-            Console.WriteLine("Enter Status:");
-            status = Console.ReadLine();
-        }
         public void TakeDetails(User user, List<User> listOfDoctors, List<Appointment> appointments)
         {
             patientID = user.Id;

@@ -249,26 +249,6 @@ namespace ClinicManagementSystemFEConsoleApp
             }
 
         }
-        public void AddAppointments()
-        {
-            Console.WriteLine("Number of Appointments to be created:");
-            int number;
-            while (!int.TryParse(Console.ReadLine(), out number))
-            {
-                Console.WriteLine("Invalid input. Try again.");
-            }
-            for (int i = 0; i < number; i++)
-            {
-                Console.WriteLine("Creating Appointment " + (i + 1));
-                Appointment appointment = new Appointment
-                {
-                    Id = appointments.Count < 0 ? 1 : appointments.Max(x => x.Id) + 1
-                };
-                appointment.TakeDetails();
-                appointments.Add(appointment);
-            }
-            appointments.Sort();
-        }
         public void PrintAllAppointments()
         {
             if (appointments.Count > 0)
@@ -309,66 +289,6 @@ namespace ClinicManagementSystemFEConsoleApp
                 Console.WriteLine("Invalid entry. Please try again.");
             }
             return id;
-        }
-        public void PrintAppointmentById()
-        {
-            Appointment a = GetAppointmentByID(GetIdFromUser());
-            if (a != null)
-            {
-                PrintAppointment(a);
-            }
-            else
-            {
-                Console.WriteLine("No such appointment created.");
-            }
-        }
-        public void EditAppointmentPrice()
-        {
-            Appointment a = GetAppointmentByID(GetIdFromUser());
-            if (a != null)
-            {
-                Console.WriteLine("Please enter new appointment price:");
-                double price;
-                while (!double.TryParse(Console.ReadLine(), out price))
-                {
-                    Console.WriteLine("Invalid entry. Please try again.");
-                }
-                for (int i = 0; i < appointments.Count; i++)
-                {
-                    if (appointments[i].Id == a.Id)
-                    {
-                        appointments[i].Price = price;
-                        break;
-                    }
-                }
-                Console.WriteLine("New Appointment Details");
-                PrintAppointment(a);
-            }
-            else
-            {
-                Console.WriteLine("No such appointment created.");
-            }
-        }
-        public void DeleteAppointment()
-        {
-            Appointment a = GetAppointmentByID(GetIdFromUser());
-            if (a != null)
-            {
-                Console.WriteLine("Do you want to delete the following Appointment?");
-                PrintAppointment(a);
-                string check = Console.ReadLine();
-                if (check == "Yes")
-                {
-                    var remove = appointments.Single(r => r.Id == a.Id);
-                    appointments.Remove(remove);
-                    Console.WriteLine("New Appointment List");
-                    PrintAllAppointments();
-                }
-            }
-            else
-            {
-                Console.WriteLine("No such appointment created.");
-            }
         }
     }
 }
