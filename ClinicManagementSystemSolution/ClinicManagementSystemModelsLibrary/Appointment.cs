@@ -45,12 +45,11 @@ namespace ClinicManagementSystemModelsLibrary
         public void TakeDetails(User user, List<User> listOfDoctors, List<Appointment> appointments)
         {
             patientID = user.Id;
-            Console.WriteLine("Please select from the list of doctors below");
+            Console.WriteLine("| {0,-3} | {1,-10} | {2,-15} | {3,-20} |", "Id", "Name", "Speciality", "Years of Experience");
             foreach (var item in listOfDoctors)
             {
-                Console.WriteLine("************************");
-                Console.WriteLine("ID: " + item.Id + "\nName: " + item.Name + "\nSpeciality: " + ((Doctor)item).Speciality + "\nYears of Experience: " + ((Doctor)item).Experience);
-                Console.WriteLine("************************");
+                Console.WriteLine("| {0,-3} | {1,-10} | {2,-15} | {3,-20} |", item.Id, item.Name, ((Doctor)item).Speciality, ((Doctor)item).Experience);
+                //Console.WriteLine(item.Id + "\t" + item.Name + "\t" + ((Doctor)item).Speciality + "\t" + ((Doctor)item).Experience);
             }
             Console.WriteLine("Enter Doctor ID:");
             var check = true;
