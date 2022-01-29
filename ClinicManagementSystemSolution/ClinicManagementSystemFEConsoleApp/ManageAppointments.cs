@@ -23,7 +23,7 @@ namespace ClinicManagementSystemFEConsoleApp
         }
         public void MakeAppointment()
         {
-            Console.WriteLine("Please enter a few details for your Appointment");
+            Console.WriteLine("Please select a doctor from the list below");
             Appointment newAppointment = new Appointment
             {
                 Id = appointments.Count < 0 ? 1 : appointments.Max(x => x.Id) + 1
@@ -113,7 +113,7 @@ namespace ClinicManagementSystemFEConsoleApp
                         if (ta != null)
                         {
                             int idx = appointments.IndexOf(ta);
-                            appointments[idx].Details = appointments[idx].Details + "\nDoctor Notes: " + details;
+                            appointments[idx].Details += "\nDoctor Notes: " + details;
                             Console.WriteLine("Remarks added. Displaying Appointment Details.");
                             PrintAppointment(appointments[idx]);
                         }
@@ -170,7 +170,7 @@ namespace ClinicManagementSystemFEConsoleApp
                         if (ta != null)
                         {
                             int idx = appointments.IndexOf(ta);
-                            appointments[idx].Details = appointments[idx].Details + "\nDoctor Notes: " + details;
+                            appointments[idx].Details += "\nDoctor Notes: " + details;
                             appointments[idx].Price = price;
                             appointments[idx].Status = (price == 0 ? "Paid" : "Pending Payment");
                             Console.WriteLine("Payment Raised. Displaying Appointment Details.");

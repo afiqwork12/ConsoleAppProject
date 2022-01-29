@@ -50,16 +50,7 @@ namespace ClinicManagementSystemFEConsoleApp
                 }
             } while (currentUser == null);
             Console.Clear();
-            if (currentUser.Type == "Patient")
-            {
-                Console.WriteLine("Welcome, " + currentUser.Name);
-
-            }
-            else
-            {
-                Console.WriteLine("Welcome, Dr." + currentUser.Name);
-
-            }
+            
             return currentUser;
         }
     }

@@ -40,7 +40,7 @@ namespace ClinicManagementSystemModelsLibrary
                 "\nDate: " + date.ToString("dd/MM/yyyy") +
                 "\nTime: " + date.ToString("hh:mm tt") +
                 "\nPrice: " + (price < 0.0 ? "To be decided": "$" + price) +
-                "\nStatus: " + status;
+                "\nPayment Status: " + status;
         }
         public void TakeDetails(User user, List<User> listOfDoctors, List<Appointment> appointments)
         {
