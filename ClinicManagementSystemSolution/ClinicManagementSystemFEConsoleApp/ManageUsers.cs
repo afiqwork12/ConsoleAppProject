@@ -11,9 +11,6 @@ namespace ClinicManagementSystemFEConsoleApp
     {
         public List<User> users;
         public User currentUser;
-        public ManageUsers()
-        {
-        }
         public ManageUsers(User user, List<User> users)
         {
             currentUser = user;

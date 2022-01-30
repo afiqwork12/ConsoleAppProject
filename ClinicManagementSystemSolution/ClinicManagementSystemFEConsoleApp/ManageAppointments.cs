@@ -12,9 +12,6 @@ namespace ClinicManagementSystemFEConsoleApp
         public List<Appointment> appointments;
         public List<User> users;
         public User currentUser;
-        public ManageAppointments()
-        {
-        }
         public ManageAppointments(User user, List<User> users, List<Appointment> appointments)
         {
             currentUser = user;
@@ -227,39 +224,11 @@ namespace ClinicManagementSystemFEConsoleApp
             }
 
         }
-        public void PrintAllAppointments()
-        {
-            if (appointments.Count > 0)
-            {
-                for (int i = 0; i < appointments.Count; i++)
-                {
-                    PrintAppointment(appointments[i]);
-                }
-            }
-            else
-            {
-                Console.WriteLine("No Appointments created yet");
-            }
-        }
         public void PrintAppointment(Appointment appointment)
         {
             Console.WriteLine("************************");
             Console.WriteLine(appointment);
             Console.WriteLine("************************");
-        }
-        public Appointment GetAppointmentByID(int ID)
-        {
-            return appointments.Find(a => a.Id == ID);
-        }
-        public int GetIdFromUser()
-        {
-            Console.WriteLine("Please enter the appointment ID:");
-            int id;
-            while (!int.TryParse(Console.ReadLine(), out id))
-            {
-                Console.WriteLine("Invalid entry. Please try again.");
-            }
-            return id;
         }
     }
 }
