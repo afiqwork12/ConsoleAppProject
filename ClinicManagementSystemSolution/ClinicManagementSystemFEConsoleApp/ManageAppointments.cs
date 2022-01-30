@@ -174,6 +174,7 @@ namespace ClinicManagementSystemFEConsoleApp
 
         private void PrintAppointmentsFromList(List<Appointment> temp)
         {
+            temp.Sort();
             foreach (var item in temp)
             {
                 PrintAppointment(item);
