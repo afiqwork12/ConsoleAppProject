@@ -117,16 +117,6 @@ namespace ClinicManagementSystemFEConsoleApp
                             Console.WriteLine("Remarks added. Displaying Appointment Details.");
                             PrintAppointment(appointments[idx]);
                         }
-                        //for (int i = 0; i < appointments.Count; i++)
-                        //{
-                        //    if (id == appointments[i].Id)
-                        //    {
-                        //        appointments[i].Details = appointments[i].Details + "\nDoctor Notes: " + details;
-                        //        Console.WriteLine("Remarks added. Displaying Appointment Details.");
-                        //        PrintAppointment(appointments[i]);
-                        //        break;
-                        //    }
-                        //}
                     }
                 }
             }
@@ -176,18 +166,6 @@ namespace ClinicManagementSystemFEConsoleApp
                             Console.WriteLine("Payment Raised. Displaying Appointment Details.");
                             PrintAppointment(appointments[idx]);
                         }
-                        //for (int i = 0; i < appointments.Count; i++)
-                        //{
-                        //    if (id == appointments[i].Id)
-                        //    {
-                        //        appointments[i].Details = appointments[i].Details + "\nDoctor Notes: " + details;
-                        //        appointments[i].Price = price;
-                        //        appointments[i].Status = (price == 0 ? "Paid" : "Pending Payment");
-                        //        Console.WriteLine("Payment Raised. Displaying Appointment Details.");
-                        //        PrintAppointment(appointments[i]);
-                        //        break;
-                        //    }
-                        //}
                     }
                 }
             }
@@ -271,13 +249,6 @@ namespace ClinicManagementSystemFEConsoleApp
         }
         public Appointment GetAppointmentByID(int ID)
         {
-            //for (int i = 0; i < appointments.Count; i++)
-            //{
-            //    if (appointments[i].Id == ID)
-            //    {
-            //        return appointments[i];
-            //    }
-            //}
             return appointments.Find(a => a.Id == ID);
         }
         public int GetIdFromUser()

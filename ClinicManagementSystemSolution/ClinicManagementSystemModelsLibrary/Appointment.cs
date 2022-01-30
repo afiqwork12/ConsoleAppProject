@@ -49,7 +49,6 @@ namespace ClinicManagementSystemModelsLibrary
             foreach (var item in listOfDoctors)
             {
                 Console.WriteLine("| {0,-3} | {1,-10} | {2,-15} | {3,-20} |", item.Id, item.Name, ((Doctor)item).Speciality, ((Doctor)item).Experience);
-                //Console.WriteLine(item.Id + "\t" + item.Name + "\t" + ((Doctor)item).Speciality + "\t" + ((Doctor)item).Experience);
             }
             Console.WriteLine("Enter Doctor ID:");
             var check = true;
@@ -108,18 +107,6 @@ namespace ClinicManagementSystemModelsLibrary
                     }
                 }
             }
-            
-            //if (docApp.Count > 0)
-            //{
-            //    DateTime chosenTimeslot = GetTimeSlot(appDate, docApp);
-            //    date = chosenTimeslot;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Select a timeslot");
-            //    Console.ReadLine();
-            //}
-            
             status = "Opened";
         }
 
@@ -129,10 +116,7 @@ namespace ClinicManagementSystemModelsLibrary
             for (int i = 9; i <= 17; i++)
             {
                 string hour = (i > 12 ? i - 12 : i).ToString("D2") + ":00:00";
-                //string hour1 = (i > 12 ? i - 12 : i).ToString("D2") + ":30:00";
-                //Console.WriteLine(dsadsa.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"));
                 timeslots.Add(DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
-                //timeslots.Add(DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + hour1 + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
             }
             timeslots = timeslots.Where(x => !docApp.Select(y => y.date).Contains(x)).ToList();
             if (timeslots.Count > 0)
